@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=NTR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nokora:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@700&display=swap');
+
+
+body { 
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+h1 {
+    color: #6E7995;
+    font-family: 'Nokora', sans-serif;
+}
+
+.container-global {
+    position: absolute;
+    bottom: 30vh;
+    left: 15vw;
+}
+
+
+input[type="number"], input[type="password"] {
+    width: 400px;
+    height: 40px;
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    margin: 10px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.input-icone>input[type="number"] {
+    padding-left: 40px;
+}
+.input-icone>input[type="password"] {
+    padding-left: 40px;
+}
+
+.input-icone {
+    position: relative;
+}
+
+.input-icone>i {
+    position: absolute;
+    left: 4px;
+    top: 11px;
+    padding: 11px 8px;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.input-icone>input[type="number"]:focus+i {
+    color: dodgerBlue;
+}
+.input-icone>input[type="password"]:focus+i {
+    color: dodgerBlue;
+}
+
+.section-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botao-entrar {
+    font-family: 'NTR', sans-serif;
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6C42D9 22.87%, #885EF3 107.98%);
+    border: none;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.link {
+    margin: 10px;
+    font-family: 'Public Sans', sans-serif;
+    color: #8359EE;
+}
+
+.link:link,
+.link:visited {
+    text-decoration: none
+}
+
+.link:hover {
+    text-decoration: none;
+    color: rgb(82, 42, 42)
+}
+
+#sub-container{
+    position: absolute;
+    background-color: #364761;
+    width: 550px;
+    left: 55%;
+    bottom: 0px;
+    top: 0px;
+    
+}
+
+#chaves-decoracao{
+    max-width: 100%;
+    max-height: 99%;
+}
+
+#chaves{
+    width: 260px;
+    position: absolute;
+    left: 28%;
+    animation: moveBanner 1s 0.7s forwards;
+    opacity: 0;
+}
+
+.section-2 #chaves-decoracao { 
+    animation: zoom 25s;
+}
+
+@keyframes moveBanner {
+    0% {
+      transform: translateY(10rem) rotateY(-30deg);
+    }
+    100% {
+      transform: translateY(0) rotateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes zoom {
+    0% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+#SGC-nome{
+    position: absolute;
+    bottom: 40px;
+    right: 27px;
+    color: #FF9900;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Public Sans';
+    left: 20px;
+}
+

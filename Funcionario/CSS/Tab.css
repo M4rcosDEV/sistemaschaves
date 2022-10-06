@@ -1,0 +1,221 @@
+@import "/Funcionario/CSS/Fonts&Color.css";
+
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*  ----------- Seta Lateral ----------  */
+body{
+    background-image: linear-gradient(50deg, #27395B ,#2f3a4e);
+    overflow: hidden;
+}
+.Seta{
+    position:absolute;
+    z-index: +10;
+    left: 235px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.Circulo_Seta{
+    height: 30px;
+    width: 30px;
+    margin-top: -25px;
+    margin-left: -5px;
+    border-radius: 100px;
+    background-color: #38507D;
+}
+.Seta > i {
+    font-size: 20px;
+    color: #FFC700;
+    transform: rotate(-180deg);
+}
+.Conteiner_Menu{
+    position: fixed;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient( 180deg,#38507D, #27395B) ;   
+    height: 100vh; 
+    padding-right: 30px;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
+}
+/*-------- Logo --------*/
+.NameServico{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 1000px;
+    transition: all 0.5s ease-in-out;
+}
+.imgs_menu{
+    overflow: hidden;
+}
+.Logo_Status_1{
+    width: 260px;
+}
+.Logo_Status_1 > img {
+    width: 120px;
+}
+.Logo_Status_2 > img {
+    width: 50px;
+}
+.Logo_Status_1 > h4 {
+    font-size: 18px;
+    font-family: 'Manrope';
+    font-weight: lighter;
+    color: #FFC700;
+}
+/*-------- Itens Menu --------*/
+.Lista_Menu{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 20px;
+    width: 230px;
+}
+.Item_Menu{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.Item_Menu > a {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    overflow: hidden;
+}
+/*-------- Icon --------*/
+.Item_Menu_Icon{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 25px;
+    color: #5977A5;
+    height: 25px;
+}
+.Item_Menu_Icon .bx:last-child{
+    margin-top: -80%;
+    color: #FFC700;
+    transition: all 0.3s ease-in-out;
+}
+.Item_Menu_Icon .bx:first-child{
+    transition: all 0.3s ease-in-out;
+}
+/*-------- Animação Icon --------*/
+.Item_Menu > a:hover .Item_Menu_Icon .bx:last-child{
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+}
+.Item_Menu > a:hover .Item_Menu_Icon .bx{
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+}
+/*-------- Informação --------*/
+.Item_Menu_Infor{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #5977A5;
+    font-family: 'Prompt', sans-serif;
+    height: 25px;
+    transition: all 0.3s ease-in-out;
+}
+.Item_Menu_Infor > span{
+    transition: all 0.3s ease-in-out;
+}
+.Item_Menu_Infor span::before{
+    content: attr(data-text);
+    display: flex;
+    flex-direction: column;
+    color: #FFC700;
+    margin-top: -25px;
+}
+.Item_Menu > a:hover .Item_Menu_Infor span{
+    transform: translateY(25px);
+    transition: all 0.3s ease-in-out;
+}
+/*-------- Sobre --------*/
+    .Line_Icon_Sobre{
+        margin-top: 0px;
+        height: 2px;
+        width: 200px;
+        border-radius: 1001px;
+        background-color: #202E49;
+    }
+/*-------- Sair --------*/
+.exit_menu{
+    margin-top: 30px;
+    transform: rotate(270deg);
+
+}
+
+/*-------- JavaScript --------*/
+.Item_Menu.active .Item_Menu_Icon {
+    color: #FFC700;
+}
+.Item_Menu.active .Item_Menu_Infor {
+    color: #FFC700;
+}
+.Conteiner_Menu.active{
+    width: 35px;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient( 180deg,#38507D, #27395B) ;   
+    height: 100vh; 
+    padding-right: 30px;
+    overflow: hidden;
+    box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+}
+.Seta.active{
+    position:absolute;
+    z-index: +10;
+    left: 55px;
+    transform: rotate(180deg);
+    margin-top: 25px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+}
+.Conteiner_Menu.active .NameServico{
+    margin-left: -250px;
+    transition: all 0.5s ease-in-out;
+
+}
+/*-------Main & Header-------*/
+
+header {
+    transition: all 0.5s ease-in-out;
+    margin-left: 280px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+header.active {
+    margin-left: 120px;
+}
+main {
+    transition: all 0.5s ease-in-out;
+    margin-left: 280px;
+    padding-top: 30px;
+}
+main.active {
+    margin-left: 120px;
+}
+
+@media (max-width: 1366px){
+    .Lista_Menu{
+        gap: 20px;
+        
+    }
+
+    
+}

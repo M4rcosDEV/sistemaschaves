@@ -184,7 +184,7 @@
                 echo        '<div class="mini-container-sala">';
                 echo            '<img class="img-chave-sala" src="../img/Chave.png" alt="">';
                 echo            '<div class="linha"></div>';
-                echo            '<p class="nome_sala">Salas'.$sa->id_sala.'</p>';
+                echo            '<p class="nome_sala">Salas '.$sa->id_sala.'</p>';
                 echo            '<div class="linha"></div>';
                 echo    '<div class="nome_func_sala">Nome</div>';
                 echo    '<section>';
@@ -216,7 +216,13 @@
                 </div>
             </div>
         </div>
-
+<?php
+ $id_predio = filter_input(
+    INPUT_GET,
+    'id_predio',
+    FILTER_SANITIZE_NUMBER_INT
+);
+?>
         <div class="PopupAddsala">
             <div class="ConteinarPopupAddsala">
                 <img src="../img/fig-aula.svg" alt="Sala">
@@ -224,19 +230,19 @@
                 <div class="InformacoesPopupAddsalas">
                     <div class="InformoesPopupAddsalas1">
                         <h4>Adicionar sala<h4>
-                                <button name="button-Add-salas" class="button_Add_sala_Fecha"><i
-                                        class='bx bx-x'></i></button>
+                        <button name="button-Add-salas" class="button_Add_sala_Fecha"><i
+                        class='bx bx-x'></i></button>
                     </div>
                     <section>
+                        <form name="formSalas" action="../config/salaHelper.php" method="POST">
+                        <input style="display: none" name="tipo" id="tipo" type="text" value="cadastrarsala">
+                        <input style="display: none" name="id_predio" id="tipo" type="number" value="<?php echo $id_predio?>">
                         <label for="numero">Numero: </label>
                         <input placeholder="Nº" name="numero" class="numero-sala" type="text">
+                        <button value="submit" name="button-salvar-predioNovo" class="salvar-sala" id="salvar-sala">Salvar</button>
+                    </form>
                     </section>
-                    <button value="submit" name="button-salvar-predioNovo" class="salvar-sala" id="salvar-sala">
-                        Salvar
-                    </button>
-
                 </div>
-
             </div>
         </div>
 

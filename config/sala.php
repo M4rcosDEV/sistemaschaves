@@ -4,17 +4,20 @@ include_once 'banco.php';
 
 class Sala{
     public $id_sala;
+    public $id_predio;
 
-    function inserir(){
+    function inserir($id_predio){
         $banco = new Banco();
         $conexao = $banco->conectar();
         try{
-            $stmt = $conexao->prepare("insert into aluno (id_sala) values (:id_sala)");
-            $stmt->bindParam(':numero', $this->id_sala);
+            $stmt = $conexao->prepare("insert into sala (id_sala, id_predio) values (:id_sala, :id_predio)");
+            $stmt->bindParam(':id_sala', $this->id_sala);
+           
+            $stmt->bindParam(':id_predio', $id_predio);
             $stmt->execute();
 
         } catch(PDOException $ex){
-            echo "Erro ao inserir aluno: " . $ex;
+            echo "Erro ao inserir sala: " . $ex;
         }
         
     }

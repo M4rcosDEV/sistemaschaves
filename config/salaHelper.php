@@ -10,26 +10,24 @@ include_once "sala.php";
 
 if(isset($_POST['tipo'])){
     $tipo = $_POST['tipo'];
-    if($tipo === 'cadastraraluno'){
+    if($tipo === 'cadastrarsala'){
         cadastrar();
     }else if($tipo === "excluiraluno"){
         excluir_aluno();
     }
-
-    
-
 }
 
 function cadastrar()
 {
     $numero = $_POST['numero'];
+    $sala = new Sala();
+    $id_predio = $_POST['id_predio'];
 
-    $sala = new Aluno($numero);
-   
-    $sala->inserir();
-    //header("Location:index.php");
+    $sala -> id_sala = $numero;
+
+    $sala->inserir($id_predio);
+    header("Location:../Funcionario/sala.php?id_predio=".$id_predio);
 }
-
 
 
 function getSalas(){
@@ -42,7 +40,7 @@ function getSalas(){
         $salas = array();
         foreach($stmt->fetchAll() as $v => $value){
             $sala = new Sala();
-             $sala->id_sala = $value['id_sala'];
+            $sala->id_sala = $value['id_sala'];
             array_push($salas, $sala);
         }
        return $salas;
@@ -65,7 +63,7 @@ function getSalasPredio($id_predio){
         $salas = array();
         foreach($stmt->fetchAll() as $v => $value){
             $sala = new Sala();
-             $sala->id_sala = $value['id_sala'];
+            $sala->id_sala = $value['id_sala'];
             array_push($salas, $sala);
         }
        return $salas;

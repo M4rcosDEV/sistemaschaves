@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE php>
 <html lang="pt_BR">
 
 <head>
@@ -9,11 +9,11 @@
   <!-- Icons -->
   <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
   <!-- Style Global-->
-  <link href="/Funcionario/CSS/Tab.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/Tab.css" rel="stylesheet" type="text/css" />
   <!-- Style -->
-  <link href="/Funcionario/CSS/cadastrodechave.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/cadastrodechave.css" rel="stylesheet" type="text/css" />
   <!-- Script -->
-  <script src="/Funcionario/JAVASCRIPT/Tab.js" type="text/JavaScript" defer ></script>
+  <script src="JAVASCRIPT/Tab.js" type="text/JavaScript" defer ></script>
 </head>
 
 <body>
@@ -25,18 +25,18 @@
     <div class="Conteiner_Menu">
             <div class="NameServico">
                 <div class="Logo_Status_1">
-                    <img src="/img/Logo 1.png" alt="Logo SGC">
+                    <img src="../img/Logo 1.png" alt="Logo SGC">
                     <h4>Sistema de Gerenciamento </h4>
                     <h4>de Chaves</h4>
                 </div>
                 <div class="Logo_Status_2">
-                    <img src="/img/Chave.png" alt="Logo SGC" class="imgs_menu_2">
+                    <img src="../img/Chave.png" alt="Logo SGC" class="imgs_menu_2">
                 </div>
             </div>
         <ul class="Lista_Menu">
             <!-- Item 1 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/home.html">
+                <a href="home.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-home'></i>
                         <i class='bx bxs-home'></i>
@@ -48,7 +48,7 @@
             </li>
             <!-- Item 2 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/gerenciamento.html">
+                <a href="gerenciamento.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-key' ></i>
                         <i class='bx bxs-key' ></i>
@@ -60,7 +60,7 @@
             </li>
             <!-- Item 3 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/pendente.html">
+                <a href="pendente.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-archive-in'></i>
                         <i class='bx bxs-archive-in'></i>
@@ -72,7 +72,7 @@
             </li>
             <!-- Item 4 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/Solicitacoes.html">
+                <a href="Solicitacoes.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-user-voice'></i>
                         <i class='bx bxs-user-voice'></i>
@@ -84,7 +84,7 @@
             </li>
             <!-- Item 5 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/Agendamento.html">
+                <a href="Agendamento.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-hourglass-top'></i>
                         <i class='bx bxs-hourglass-top'></i>
@@ -95,7 +95,7 @@
                 </a>
             </li>
             <li class="Item_Menu active">
-                <a href="/Funcionario/cadastrodechave.html">
+                <a href="cadastrodechave.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-user-badge'></i>
                         <i class='bx bxs-user-badge'></i>
@@ -121,7 +121,7 @@
             </li>
             <!-- Item 7 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/index.html" class="exit_menu">
+                <a href="index.php" class="exit_menu">
                     <div class="Item_Menu_Icon">
                         <i class='bx bx-export'></i>
                         <i class='bx bx-export'></i>
@@ -134,7 +134,7 @@
   <header>
     <div class="Infor_Gerenciamento_Cadastro">
       <div class="Infor_Gerenciamento">
-        <a href="/Funcionario/gerenciamento.html">
+        <a href="gerenciamento.php">
           <i class='bx bx-chevron-right'></i>
           <h3>Gerenciamento de chaves</h3>
         </a>
@@ -149,24 +149,25 @@
   </header>
   <main>
     <div class="container_cadastro">
-      <form class="form_cadastro">
-        <div class = "nmr_chave">
-            <h4>Número da chave</h4>
-            <input type="text" placeholder="Informe o número da chave" name="nome" id="nome"></input>
-        </div>
-        <div class = "nmr_predio">
-            <h4>Prédio</h4>
-            <input type="text" placeholder="Informe o número do prédio" name="predio" id="predio"></input>
-        </div>
-        <div class = "desc">
-            <h4>Descrição</h4>
-            <input type="text" placeholder="Informe a descrição da chave" name="desc" id="desc"></input>
-        </div>
-        <div class="bnt_input">
-          <button class = "button_cad" type="submit">Cadastrar</button>
-        </div>
+      <form class="form_cadastro" action="../config/chaveHelper.php" method="POST">
+            <input style="display: none" name="tipo" id="tipo" type="text" value="cadastrarchave">
+            <div class = "nmr_chave">
+                <h4>Número da chave</h4>
+                <input type="text" placeholder="Informe o número da chave" name="nome" id="nome"></input>
+            </div>
+            <div class = "nmr_predio">
+                <h4>Prédio</h4>
+                <input type="text" placeholder="Informe o número do prédio" name="predio" id="predio"></input>
+            </div>
+            <div class = "desc">
+                <h4>Descrição</h4>
+                <input type="text" placeholder="Informe a descrição da chave" name="desc" id="desc"></input>
+            </div>
+            <div class="bnt_input">
+            <button value="submit" name="button-salvar-predioNovo" class="salvar-sala" id="salvar-sala">Salvar</button>
+            </div>
         </form>
-    </div
+    </div>
   </main>
 </body>
 

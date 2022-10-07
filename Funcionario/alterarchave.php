@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +12,11 @@
   <!-- Icons -->
   <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
   <!-- Style Global-->
-  <link href="/Funcionario/CSS/Tab.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/Tab.css" rel="stylesheet" type="text/css" />
   <!-- Style -->
-  <link href="/Funcionario/CSS/alterarchave.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/alterarchave.css" rel="stylesheet" type="text/css" />
   <!-- Script -->
-  <script src="/Funcionario/JAVASCRIPT/Tab.js" type="text/JavaScript" defer ></script>
+  <script src="JAVASCRIPT/Tab.js" type="text/JavaScript" defer ></script>
 </head>
 <body>
     <!-- Menu -->
@@ -27,18 +27,18 @@
     <div class="Conteiner_Menu">
             <div class="NameServico">
                 <div class="Logo_Status_1">
-                    <img src="/img/Logo 1.png" alt="Logo SGC">
+                    <img src="../img/Logo 1.png" alt="Logo SGC">
                     <h4>Sistema de Gerenciamento </h4>
                     <h4>de Chaves</h4>
                 </div>
                 <div class="Logo_Status_2">
-                    <img src="/img/Chave.png" alt="Logo SGC" class="imgs_menu_2">
+                    <img src="../img/Chave.png" alt="Logo SGC" class="imgs_menu_2">
                 </div>
             </div>
         <ul class="Lista_Menu">
             <!-- Item 1 MENU -->
             <li class="Item_Menu active">
-                <a href="/Funcionario/home.html">
+                <a href="home.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-home'></i>
                         <i class='bx bxs-home'></i>
@@ -50,7 +50,7 @@
             </li>
             <!-- Item 2 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/gerenciamento.html">
+                <a href="gerenciamento.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-key' ></i>
                         <i class='bx bxs-key' ></i>
@@ -62,7 +62,7 @@
             </li>
             <!-- Item 3 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/pendente.html">
+                <a href="pendente.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-archive-in'></i>
                         <i class='bx bxs-archive-in'></i>
@@ -74,7 +74,7 @@
             </li>
             <!-- Item 4 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/Solicitacoes.html">
+                <a href="Solicitacoes.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-user-voice'></i>
                         <i class='bx bxs-user-voice'></i>
@@ -86,7 +86,7 @@
             </li>
             <!-- Item 5 MENU -->
             <li class="Item_Menu">
-                <a href="/Funcionario/Agendamento.html">
+                <a href="Agendamento.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-hourglass-top'></i>
                         <i class='bx bxs-hourglass-top'></i>
@@ -97,7 +97,7 @@
                 </a>
             </li>
             <li class="Item_Menu">
-                <a href="/Funcionario/Cadastro-funcionario.html">
+                <a href="Cadastro-funcionario.php">
                     <div class="Item_Menu_Icon">
                         <i class='bx bxs-user-badge'></i>
                         <i class='bx bxs-user-badge'></i>
@@ -136,7 +136,7 @@
   <header>
     <div class="Infor_Gerenciamento_Cadastro">
       <div class="Infor_Gerenciamento">
-        <a href="/Funcionario/gerenciamento.html">
+        <a href="gerenciamento.php">
           <i class='bx bx-chevron-right'></i>
           <h3>Gerenciamento de chaves</h3>
         </a>

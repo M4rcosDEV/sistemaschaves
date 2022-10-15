@@ -10,6 +10,7 @@
   <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
   <!-- Style Global-->
   <link href="CSS/Tab.css" rel="stylesheet" type="text/css" />
+  <link href="CSS/Home.css" rel="stylesheet" type="text/css" />
   <!-- Style -->
   <link href="CSS/cadastrodechave.css" rel="stylesheet" type="text/css" />
   <!-- Script -->
@@ -157,14 +158,14 @@
             </div>
             <div class = "nmr_predio">
                 <h4>Prédio</h4>
-                <input type="text" placeholder="Informe o número do prédio" name="predio" id="predio"></input>
+                <input type="text" placeholder="Informe o número do prédio, OBS: O predio deve existir!" name="predio" id="predio"></input>
             </div>
             <div class = "desc">
                 <h4>Descrição</h4>
                 <input type="text" placeholder="Informe a descrição da chave" name="desc" id="desc"></input>
             </div>
             <div class="bnt_input">
-            <button value="submit" name="button-salvar-predioNovo" class="salvar-sala" id="salvar-sala">Salvar</button>
+            <button value="submit" class="salvar-chave" id="salvar-chave">Salvar</button>
             </div>
         </form>
     </div>

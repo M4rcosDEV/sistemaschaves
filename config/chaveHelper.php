@@ -7,8 +7,6 @@ if(isset($_POST['tipo'])){
 
     if($tipo === 'cadastrarchave'){
         cadastrar();
-    }else if($tipo === "excluirsala"){
-
     }
 }
 
@@ -21,9 +19,10 @@ function cadastrar()
 {
     $numero= $_POST['nome'];
     $predio = $_POST['predio'];
-    $chave = new Chave($numero, $predio);
+    $desc = $_POST['desc'];
+    $chave = new Chave($numero, $predio, $desc);
     $chave->inserir();
-    //header("Location:index.php");
+    header("Location:../Funcionario/gerenciamento.php");
 }
 
 ?>

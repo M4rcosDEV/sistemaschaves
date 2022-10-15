@@ -11,7 +11,6 @@
     <!-- Style Global-->
     <link href="CSS/Tab.css" rel="stylesheet" type="text/css" />
     <!-- Style -->
-    <link href="CSS/Home.css" rel="stylesheet" type="text/css" />
     <link href="CSS/sala.css" rel="stylesheet" type="text/css" />
     <!-- Script -->
     <script src="JAVASCRIPT/Tab.js" type="text/JavaScript" defer></script>
@@ -184,7 +183,7 @@
                 echo        '<div class="mini-container-sala">';
                 echo            '<img class="img-chave-sala" src="../img/Chave.png" alt="">';
                 echo            '<div class="linha"></div>';
-                echo            '<p class="nome_sala">Salas '.$sa->id_sala.'</p>';
+                echo            '<p class="nome_sala">Sala '.$sa->id_sala.'</p>';
                 echo            '<div class="linha"></div>';
                 echo    '<div class="nome_func_sala">Nome</div>';
                 echo    '<section>';

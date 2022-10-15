@@ -16,22 +16,26 @@ create table funcionario (
 	tipo_func varchar(55) not null
 ); 
 
-create table chave ( 
-	id_chave integer auto_increment primary key,  
-	situacao integer not null,  
-	id_sala integer not null,
-    foreign key(id_sala) references sala(id_sala)
-); 
 
 create table predio ( 
-	id_predio integer auto_increment primary key
+	id_predio integer primary key
 ); 
 
 create table sala ( 
-	id_sala integer auto_increment primary key,  
+	id_sala integer,  
 	id_predio integer,
-    foreign key(id_predio) references predio(id_predio)
+	primary key(id_sala, id_predio)
 ); 
+
+
+create table chave ( 
+	id_chave integer primary key,  
+	situacao integer not null,  
+	id_predio integer not null,
+    descricao varchar(50) not null,
+    foreign key(id_predio) references predio(id_predio)
+    
+);
 
 create table agendar (
 	id_chave integer,
@@ -42,7 +46,7 @@ create table agendar (
 	foreign key(id_chave) references chave(id_chave),
     foreign key(id_cliente) references cliente(id_cliente),
     primary key(id_chave, id_cliente)
-); 
+);
 
 create table emprestimo (
 	id_emprestimo integer auto_increment primary key,

@@ -57,5 +57,5 @@ create table emprestimo (
     id_cliente integer,
     id_funcionario integer,
 	foreign key(id_chave, id_cliente) references agendar(id_chave, id_cliente),
-    foreign key(id_funcionario) references funcionario(id_funcionario)
+    foreign key(id_administrador) references administrador(id_administrador)
 );

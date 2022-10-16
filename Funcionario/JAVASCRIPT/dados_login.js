@@ -1,11 +1,13 @@
-// function cadastrarERedirecionar() {
-//   //capturar dados
-//    window.location.assign = 'Cadastro-funcionario-login.html';
-// }
-function cadastrarDados() {
-    var senha = document.getElementById('senha');
-    var confirmar_senha = document.getElementById('confirmar_senha');
-    validarSenha(senha, confirmar_senha);
+const inputs = document.querySelectorAll('.input');
+const botaoEntrar = document.querySelector('.botao-entrar');
+const verificarTamanhoInput = () => {
+    const [nome, matricula, email, senha, confirmar_senha] = inputs;
+    if(matricula.value.length >8 && nome.value != "" && senha.value != "" && confirmar_senha.value != "" && email.value != "") {
+        botaoEntrar.removeAttribute('disabled');
+    }
+    else {
+        botaoEntrar.setAttribute('disabled', '')
+    }
 }
 
 function validarSenha(senha, confirmar_senha) {
@@ -17,3 +19,4 @@ function validarSenha(senha, confirmar_senha) {
       confirmar_senha.setCustomValidity("");
     }
   }
+inputs.forEach((input) => input.addEventListener('input', verificarTamanhoInput));

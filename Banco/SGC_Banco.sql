@@ -2,19 +2,22 @@ create schema SGC;
 use SGC;
 
 create table cliente (
-	id_cliente integer auto_increment primary key, 
-	nome integer not null, 
-	matricula integer not null,  
-	cpf_cliente integer unique
-); 
+	id_cliente integer auto_increment primary key,
+	nome varchar(50) not null,
+	matricula varchar(15) not null,
+	senha varchar(50) not null,
+    tipo_func varchar(55) not null, 
+    email varchar(55) not null
+);
 
-create table funcionario ( 
-	id_funcionario integer auto_increment primary key,
-	nome integer not null,  
-	matricula integer not null,  
-	cpf integer unique,  
-	tipo_func varchar(55) not null
-); 
+create table administrador (
+	id_administrador integer auto_increment primary key,
+	nome varchar(200) not null,
+	matricula varchar(15) not null,
+	senha varchar(50) not null,
+	tipo_func varchar(55) not null, 
+    email varchar(55) not null
+);
 
 
 create table predio ( 
@@ -54,5 +57,5 @@ create table emprestimo (
     id_cliente integer,
     id_funcionario integer,
 	foreign key(id_chave, id_cliente) references agendar(id_chave, id_cliente),
-    foreign key(id_funcionario) references funcionario(id_funcionario)
+    foreign key(id_administrador) references administrador(id_administrador)
 );

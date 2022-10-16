@@ -2,76 +2,126 @@
 @import url('https://fonts.googleapis.com/css2?family=Nokora:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-
-*{ 
-    padding: 0;
+* { 
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-.Logo-SGC {
-    width: 300px;
+:root { 
+    --cor-plano-de-fundo: #F5F8FA;
+    --cor-inputs: #516080; 
+    --degrade-botao-enviar: linear-gradient(90deg, #6C42D9 22.87%, #885EF3 107.98%);
+    --cor-inputs-before: #aaa;
+    --cor-link-cadastro-before: #8b73c7;
+    --cor-link-cadastro: #8359EE;
+    --cor-titulo: #6E7995;
+    --cor-titulo3: #FF9900;
+    --error-message: #F23030;
+    --sucess-message: #3F9351;
 }
 
-h1 { 
-    font-size: 30pt;
-    margin-bottom: 10px;
+main {
+    /* display: flex; */
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: 10vh 90vh;
+}
+header {
+    grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 1;
+}
+.titulo-login { 
+    font: 1.5em 'Nokora', sans-serif;
+    margin-top: 4em;
+    margin-bottom: .5em;
+    color: var(--cor-titulo);
 }
 
-h2 {
-    font-size: 18pt;
+.logo-top {
+    width: 270px;
 }
-h1, h2{
-    color: #6E7995;
-    font-family: 'Nokora', sans-serif;
+.container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-span { 
-    color: #FF7A00;
+.login {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    max-width: 700px;
+    min-height: 100vh;
+    padding: clamp(35px, 2%, 70px);
+    margin-left: 3em;
+}
+.formulario { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+.mensagem-erro { 
+    font-size: 3em;
 }
 
-.container-global {
-    width: 500px;
-    margin-left: 10%;
+input[type=number]::-webkit-inner-spin-button { 
+    --webkit-appearance: none;
 }
-
-::-webkit-input-placeholder {
-    /*Mexer no placeholder dos input*/
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-input, #Selecionar-servidor {
-    font-size: 15px;
-    width: 450px;
+.caixa-entrada input, .caixa-entrada select{
+    appearance: none;
+    border: 2px solid var(--cor-inputs-before);
+    width: 80%;
     height: 40px;
-    border: 2px solid #aaa;
-    border-radius: 10px;
-    margin: 8px 0;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-indent: 50px;
     outline: none;
-    padding: 8px;
-    box-sizing: border-box;
-    transition: 0.3s;
-    
+    font-family: 'noto-sans', sans-serif;
+    font-size: 1.1em;
+    color: var(--cor-titulo);
 }
 
-input:focus, select:focus {
-    border-color: dodgerBlue;
-    box-shadow: 0 0 8px 0 dodgerBlue;
+input[type=submit]{ 
+    text-indent: 0%;
+    border: none;
+    color: white;
+    background: var(--degrade-botao-enviar);
+    cursor: pointer;
+}
+input[type=submit]:disabled {
+    cursor: auto;
+    background: var(--cor-inputs-before);
 }
 
-.input-icone-field>input {
-    padding-left: 40px;
+input:focus, select:focus{
+    border-color: var(--cor-inputs);
+    color: var(--cor-inputs);
 }
 
+input:focus +i, select:focus +i{
+    color: var(--cor-inputs);
+}
 select > option {
-    color: #6E7995;
+    color: var(--cor-inputs);
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
-    padding-left: 40px;
+    text-indent: 2%;
+    padding-left: 20px;
 }
+
 select:invalid {
-    color: #6E7995;
-    font-size: 15px;
+    color: var(--cor-inputs);
+    font-size: 1.1em;
 }
 
 select {
@@ -79,137 +129,134 @@ select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    text-indent: 30px;
-
-    background: url(../img/arrow-down.svg) 96% / 5% no-repeat;
+    text-indent: 1.1em;
+    background: url(../../img/arrow-down.svg) 96% / 5% no-repeat;
 }
-.input-icone-field {
+option {
+    margin-left: 1.1em;
+}
+.caixa-entrada {
+    max-width: 700px;
     position: relative;
-    max-width: 400px;
+}
+.caixa-link { 
+    max-width: 700px;
+}
+.erro-cadastro { 
+    font: 1.2em 'Public-sans', sans-serif;
+    color: var(--error-message);
+}
+.cadastro-efetuado { 
+    font: 1.2em 'Public-sans', sans-serif;
+    color: var(--sucess-message);
 }
 
-.input-icone-field>i {
+.caixa-entrada i { 
     position: absolute;
-    left: 4px;
-    top: 11px;
-    padding: 15px 8px;
-    color: #aaa;
-    transition: 0.3s;
+    left: 10px;
+    top: 1em;
+    color: var(--cor-inputs-before);
 }
 
-.input-icone-field>input[type="text"]:focus+i {
-    color: dodgerBlue;
-}
-.input-icone-field>input[type="email"]:focus+i {
-    color: dodgerBlue;
-}
-.input-icone-field>select:focus+i {
-    color: dodgerBlue;
-}
+.imagem-lateral {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
 
-
-.apresentacao {
-    margin-top: 50px;
-    margin-bottom: 10px;
-}
-
-.section-1 {
     display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.botao-enviar {
-    display: block;
-    font-family: 'Nokora', sans-serif;
-    width: 450px;
-    height: 40px;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #6C42D9 22.87%, #885EF3 107.98%);
-    border: none;
-    color: white;
-    font-weight: 400;
-    font-size: 18px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    text-align: center;
-
-    transition: 0.3s ease;
-
-}
-.botao-enviar:hover { 
-    background: linear-gradient(90deg, #5420d6 22.87%, #885EF3 107.98%);
-}
-.input-icone {
-    text-align: center;
-    max-width: 400px;
-}
-
-
-.link {
-    font-family: 'Public Sans', sans-serif;
-    color: #8359EE;
-}
-.buttons-send { 
-    text-align: center;
-}
-
-.link:link,
-.link:visited {
-    text-decoration: none;
-}
-
-.link:hover {
-    text-decoration: none;
-    color: rgb(82, 42, 42)
-}
-
-#sub-container{
-    background-size: cover;
+    width: 100%;
+    background-image: url(../../img/background-lateral.svg);
     background-position: center;
+    background-size: cover;
     flex: 1;
-    position: absolute;
-    background-color: #364761;
-    width: 90vh;
-    left: 55%;
-    bottom: 0px;
-    z-index: -999;
-    top: 0px;
-    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
-#chaves-decoracao{
-    max-width: 100%;
-    max-height: 99%;
+.imagem-lateral img {
+    max-width: 250px;
+    width: 100%;
+    flex: 1;
+    animation: moveBanner 2s;
 }
-.section-2 #chaves-decoracao { 
-    animation: zoom 25s;
+.imagem-lateral h3 { 
+    font-size: 1.7em;
+    color: var(--cor-titulo3);
+    font-family: 'Public-sans', sans-serif;
+    margin-bottom: 1em;
+    text-align: center;
+}
+.caixa-link { 
+    width: 80%;
+    text-align: center;
 }
 
-@keyframes zoom {
+.link-cadastrar {
+    text-decoration: none;
+    font: 1.3em 'Public-sans', sans-serif;
+    color: var(--cor-link-cadastro-before);
+}
+.link-cadastrar:hover { 
+    color: var(--cor-link-cadastro);
+}
+
+/* animações */
+@keyframes moveBanner {
     0% {
-      transform: scale(1.5);
+      transform: translateY(10rem) rotateY(-30deg);
     }
     100% {
-      transform: scale(1);
+      transform: translateY(0) rotateY(0);
+      opacity: 1;
     }
   }
 
-#chaves{
-    width: 260px;
-    position: absolute;
-    left: 28%;
+/* Responsividade */
+@media only screen and (max-width: 912px) { 
+    main {
+        grid-template-columns: 70vw;
+        grid-template-rows: 20vh 90vh;
+    }
+    .logo-top {
+        margin-top: 4em;
+        width: 300px;
+    }
+    .imagem-lateral h3 { 
+        display: none;
+    }
+}
+@media only screen and (max-width: 622px) { 
+    .logo-top {
+        margin-top: 4em;
+        width: 300px;
+    }
 }
 
-#SGC-nome{
-    position: absolute;
-    bottom: 40px;
-    right: 27px;
-    color: #FF9900;
-    font-size: 30px;
-    text-align: center;
-    font-family: 'Public Sans';
-    left: 20px;
+@media only screen and (max-width: 414px) { 
+    main {
+        height: 100vh;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: 20vh 90vh;
+    }
+    .logo-top {
+        margin-top: 4em;
+        width: 300px;
+    }
+    .imagem-lateral {
+        display: none;
+    }
+    .login {
+        width: 100%;
+        margin-left: 0;
+    }
+    .caixa-entrada input, .caixa-entrada select{ 
+        width: 100%;
+    }
+    .caixa-link { 
+        width: 100%;
+    }
 }

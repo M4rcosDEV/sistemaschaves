@@ -18,22 +18,45 @@ class Usuario {
         $this->email = $email;
     }
 
+    function validarUsuario() {
+        $banco = new Banco();
+        $conexao = $banco->conectar();
+        try {        
+        } catch (PDOException $ex) {
+            echo "Erro ao verificar usuário: " . $ex;
+        }
+    }
+
     function inserirCliente()
     {
         $banco = new Banco();
         $conexao = $banco->conectar();
         try {
-            $stmt = $conexao->prepare("insert into cliente(nome, matricula, senha, tipo_func, email) values (:nome, :matricula, :senha, :tipo_func, :email)");
-            $stmt->bindParam(':nome', $this->nome);
-            $stmt->bindParam(':matricula', $this->matricula);
-            $stmt->bindParam(':senha', $this->senha);
-            $stmt->bindParam(':tipo_func', $this->tipo_func);
-            $stmt->bindParam(':email', $this->email);
-            $stmt->execute();
-            $_SESSION['sucesso_cadastro'] = true;
+            /**Verifica se o usuário já existe */
+            $queryVerifica = "select id_cliente from cliente where matricula = :matricula";
+            if ($stmt = $conexao->prepare($queryVerifica)) {
+                $stmt->bindParam(':matricula', $this->matricula, PDO::PARAM_STR);
+                if ($stmt->execute()) {
+                    /**valida a existencia de linhas na consulta */
+                    if ($stmt->rowCount() == 1) {
+                        $_SESSION['usuario_ja_cadastrado'] = true;
+                    }  
+                    else {
+                        /**Caso não existir o usuário, o cadastro é realizado */
+                        $stmt = $conexao->prepare("insert into cliente (nome, matricula, senha, tipo_func, email) values (:nome, :matricula, :senha, :tipo_func, :email)");
+                        $stmt->bindParam(':nome', $this->nome);
+                        $stmt->bindParam(':matricula', $this->matricula);
+                        $stmt->bindParam(':senha', $this->senha);
+                        $stmt->bindParam(':tipo_func', $this->tipo_func);
+                        $stmt->bindParam(':email', $this->email);
+                        $stmt->execute();
+                        $_SESSION['sucesso_cadastro'] = true;
+                        }
+                    }
+                }
         }
         catch (PDOException $ex) {
-            echo "Erro ao inserir Funcionário: " . $ex;
+            echo "Erro ao inserir Cliente: " . $ex;
         }
     }
 
@@ -42,16 +65,31 @@ class Usuario {
         $banco = new Banco();
         $conexao = $banco->conectar();
         try {
-            $stmt = $conexao->prepare("insert into administrador (nome, matricula, senha, tipo_func, email) values (:nome, :matricula, :senha, :tipo_func, :email)");
-            $stmt->bindParam(':nome', $this->nome);
-            $stmt->bindParam(':matricula', $this->matricula);
-            $stmt->bindParam(':senha', $this->senha);
-            $stmt->bindParam(':tipo_func', $this->tipo_func);
-            $stmt->bindParam(':email', $this->email);
-            $stmt->execute();
-            $_SESSION['sucesso_cadastro'] = true;
-        } catch (PDOException $ex) {
-            echo "Erro ao inserir Funcionário: " . $ex;
+            /**Verifica se o usuário já existe */
+            $queryVerifica = "select id_administrador from administrador where matricula = :matricula";
+            if ($stmt = $conexao->prepare($queryVerifica)) {
+                $stmt->bindParam(':matricula', $this->matricula, PDO::PARAM_STR);
+                if ($stmt->execute()) {
+                    /**valida a existencia de linhas na consulta */
+                    if ($stmt->rowCount() == 1) {
+                        $_SESSION['usuario_ja_cadastrado'] = true;
+                    }   
+                    else {
+                        /**Caso não existir o usuário, o cadastro é realizado */
+                        $stmt = $conexao->prepare("insert into administrador (nome, matricula, senha, tipo_func, email) values (:nome, :matricula, :senha, :tipo_func, :email)");
+                        $stmt->bindParam(':nome', $this->nome);
+                        $stmt->bindParam(':matricula', $this->matricula);
+                        $stmt->bindParam(':senha', $this->senha);
+                        $stmt->bindParam(':tipo_func', $this->tipo_func);
+                        $stmt->bindParam(':email', $this->email);
+                        $stmt->execute();
+                        $_SESSION['sucesso_cadastro'] = true;
+                        }
+                    }
+                }
+            }
+            catch (PDOException $ex) {
+            echo "Erro ao inserir Administrador: " . $ex;
         }
     }
 }

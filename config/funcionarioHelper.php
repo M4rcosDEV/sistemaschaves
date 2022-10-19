@@ -2,9 +2,9 @@
 session_start();
 include_once 'funcionario.php';
 
-if(isset($_POST['tipo'])) { 
+if(isset($_POST['tipo'])) {
     $tipo = $_POST['tipo'];
-    if ($tipo === 'cadastrarFuncionario'){ 
+    if ($tipo === 'cadastrarFuncionario'){
         cadastrar();
     }
 }

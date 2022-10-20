@@ -211,6 +211,8 @@ main.active {
     margin-left: 120px;
 }
 
+
+
 @media (max-width: 1366px){
     .Lista_Menu{
         gap: 20px;

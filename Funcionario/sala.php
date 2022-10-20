@@ -133,6 +133,7 @@
             </ul>
         </div>
     </nav>
+    
     <header id="cabecalho">
         <div class="bloco1">
             <!-- Nome user -->
@@ -153,8 +154,9 @@
                 <button id="gerenciar-sala">Gerenciar salas</button>
             </section>
         <div class="container_predios">
+
             <section class="salas">
-                <div class="mini-container-sala">
+                <!-- <div class="mini-container-sala">
                     <img class="img-chave-sala" src="../img/Chave.png" alt="">
                     <div class="linha"></div>
                     <p class="nome_sala">Sala 101</p>
@@ -164,8 +166,7 @@
                         <button><img class="botao_verde" src="../img/botao_verde.svg" alt=""></button>
                         <button><img class="botao_red" src="../img/botao_vermelho.svg" alt=""></button>
                     </section>
-                </div>
-            </section>
+                </div> -->
 
             <?php
             include_once '../config/salaHelper.php';
@@ -177,24 +178,25 @@
             );
             $salas = getSalasPredio($id_predio);
             foreach($salas as $sa){
-            // for($a = 0; $a<5; $a++){
-                echo '<section>';
-                echo    '<section class="salas">';
-                echo        '<div class="mini-container-sala">';
-                echo            '<img class="img-chave-sala" src="../img/Chave.png" alt="">';
-                echo            '<div class="linha"></div>';
+                echo    '<div class="mini-container-sala">';
+                echo        '<img class="img-chave-sala" src="../img/Chave.png" alt="">';
+                echo        '<div class="linha"></div>';
                 echo            '<p class="nome_sala">Sala '.$sa->id_sala.'</p>';
                 echo            '<div class="linha"></div>';
-                echo    '<div class="nome_func_sala">Nome</div>';
-                echo    '<section>';
-                echo        ' <button><img class="botao_verde" src="../img/botao_verde.svg" alt=""></button>';
-                echo        '<button><img class="botao_red" src="../img/botao_vermelho.svg" alt=""></button>';
-                echo    '</section>';
-                echo    '</div>';
-                echo '</section>';
+                echo        '<div class="nome_func_sala">Nome</div>';
+                // echo    '<section>';
+                // echo        ' <button><img class="botao_verde" src="../img/botao_verde.svg" alt=""></button>';
+                // echo        '<button><img class="botao_red" src="../img/botao_vermelho.svg" alt=""></button>';
+                // echo    '</section>';
+                echo        '</div>';
             }
-    ?>
-        
+            ?>
+                
+           
+            </section>
+
+            
+
         </div>
         
         <div class="PopupAdicionarsala">

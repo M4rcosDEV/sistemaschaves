@@ -5,6 +5,16 @@ body{
 
 .salas{
     margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 150px;
+    
+}
+
+.container_predios{
+    /* max-height: 150px; */
 }
 
 .mini-container-sala {
@@ -315,12 +325,6 @@ body{
 
 .salvar-sala:hover{
     color: rgb(218, 170, 0); 
-}
-
-.container_predios{
-    display: table;
-    table-layout: ;
-    
 }
 
 #back-predios{

@@ -1,11 +1,12 @@
 create schema SGC;
 use SGC;
 
+/*A senha precisa ser 255 pq é uma hash com muitos caracteres*/
 create table cliente (
 	id_cliente integer auto_increment primary key,
 	nome varchar(50) not null,
 	matricula varchar(15) not null,
-	senha varchar(50) not null,
+	senha varchar(255) not null,
     tipo_func varchar(55) not null, 
     email varchar(55) not null
 );
@@ -14,7 +15,7 @@ create table administrador (
 	id_administrador integer auto_increment primary key,
 	nome varchar(200) not null,
 	matricula varchar(15) not null,
-	senha varchar(50) not null,
+	senha varchar(255) not null,
 	tipo_func varchar(55) not null, 
     email varchar(55) not null
 );

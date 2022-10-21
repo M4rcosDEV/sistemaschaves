@@ -13,7 +13,7 @@ function cadastrar() {
     $nome = $_POST['nome'];
     $tipo_func = $_POST['tipo_func'];
     $matricula = $_POST['matricula'];
-    $senha = md5($_POST['senhaFinal']);
+    $senha = $_POST['senhaFinal'];
     $email = $_POST['email'];
 
     if ($tipo_func == 'administrador') {

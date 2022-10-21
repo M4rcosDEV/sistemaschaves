@@ -18,15 +18,6 @@ class Usuario {
         $this->email = $email;
     }
 
-    function validarUsuario() {
-        $banco = new Banco();
-        $conexao = $banco->conectar();
-        try {        
-        } catch (PDOException $ex) {
-            echo "Erro ao verificar usuário: " . $ex;
-        }
-    }
-
     function inserirCliente()
     {
         $banco = new Banco();
@@ -44,9 +35,10 @@ class Usuario {
                     else {
                         /**Caso não existir o usuário, o cadastro é realizado */
                         $stmt = $conexao->prepare("insert into cliente (nome, matricula, senha, tipo_func, email) values (:nome, :matricula, :senha, :tipo_func, :email)");
+                        $senha_hash = password_hash($this->senha, PASSWORD_DEFAULT);
                         $stmt->bindParam(':nome', $this->nome);
                         $stmt->bindParam(':matricula', $this->matricula);
-                        $stmt->bindParam(':senha', $this->senha);
+                        $stmt->bindParam(':senha', $senha_hash);
                         $stmt->bindParam(':tipo_func', $this->tipo_func);
                         $stmt->bindParam(':email', $this->email);
                         $stmt->execute();
@@ -77,9 +69,10 @@ class Usuario {
                     else {
                         /**Caso não existir o usuário, o cadastro é realizado */
                         $stmt = $conexao->prepare("insert into administrador (nome, matricula, senha, tipo_func, email) values (:nome, :matricula, :senha, :tipo_func, :email)");
+                        $senha_hash = password_hash($this->senha, PASSWORD_DEFAULT);
                         $stmt->bindParam(':nome', $this->nome);
                         $stmt->bindParam(':matricula', $this->matricula);
-                        $stmt->bindParam(':senha', $this->senha);
+                        $stmt->bindParam(':senha', $senha_hash);
                         $stmt->bindParam(':tipo_func', $this->tipo_func);
                         $stmt->bindParam(':email', $this->email);
                         $stmt->execute();

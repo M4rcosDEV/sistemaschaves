@@ -23,8 +23,8 @@ session_start();
       </header>
       <section class="login">
         
-        <form action="../config/login.php" method="POST" class="formulario">
-                          <input style="display: none" name="tipo" id="tipo" type="text" value="cadastrarAluno">
+        <form action="../config/loginHelper.php" method="POST" class="formulario">
+        <input style="display: none" name="tipo" id="tipo" type="text" value="logarAdm">
 
           <h1 class="titulo-login">Conecte em sua conta</h1>
           <?php

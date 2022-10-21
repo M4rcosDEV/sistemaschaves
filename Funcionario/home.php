@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    //Se o usuário não estiver logado, ele é redirecionado para a página inicial
+    if (!isset($_SESSION["logado"]) || $_SESSION["logado"] !== true) {
+        header("location: index.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -99,7 +109,7 @@
                     </li>
                     <!-- Item 7 = Sair -->
                     <li class="Li_Barra">
-                        <a href="#" class="Item_Barra_Sair">
+                        <a href="../config/logout.php" class="Item_Barra_Sair">
                             <i class='bx bx-exit'></i>
                         </a>
                     </li>
@@ -123,6 +133,8 @@
                 </form>
             </div>
         </div>
+        <h4> Olá, </h4>
+        <h4><?php $_SESSION["nomeAdm"]?></h4>
         <div class="Container1" id="ContainerMain">
             adsfasfd
         </div>
